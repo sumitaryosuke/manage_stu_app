@@ -17,3 +17,10 @@ module ManageStu
     # the framework and any gems in your application.
   end
 end
+
+module StuEvent
+  class Application < Rails::Application
+    config.load_defaults 6.0
+    config.time_zone = "Tokyo"
+  end
+end
