@@ -20,6 +20,22 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    unless user_signed_in? && (current_user.id == @event.user_id)
+      redirect_to action: :index
+    end
+  end
+
+  def update
+    event = Event.find(params[:id])
+    if event.update(event_params)
+      redirect_to event_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @event = Event.find(params[:id])
     redirect_to events_path if @event.destroy
