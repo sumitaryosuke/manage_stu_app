@@ -124,3 +124,19 @@ li {
   transition: 0.2s ease;
 }
 
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid; */
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: auto;
+  gap: 10px;
+
+}
+
+.list {
+  border: black solid 1px;
+  width: 400px;
+  height: auto;
+}
+
