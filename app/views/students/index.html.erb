@@ -1,10 +1,28 @@
 <div class="main_body">
-
-  <h2>イベント一覧</h2>
-  <div class="event-list">
-
-  </div>
-  <div class="news" >
+  <div class>
   <h2>お知らせ</h2>
+  </div>
+  <div class="events">
+    <div class="event-content">
+      <ul class="event-list">
+        <% @events.each do |eve| %>
+          <li class="list">
+            <%= link_to event_path(eve.id), method: :get do %>
+              <div class="list-wrapper">
+                <div><h3>
+                <%= eve.name %>
+                </h3></div>
+                <div>
+                <%= eve.start_day %> から
+                </div>
+                <div>
+                <%= eve.end_day %> まで
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
