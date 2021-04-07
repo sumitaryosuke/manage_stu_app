@@ -1,1 +1,33 @@
-<h2>編集ページ</h2>
+<div class="main_body">
+<h3>イベント編集</h3>
+
+<%= form_with model: @event, local: true do |f|%>
+  <div class="field">
+    <%= f.label :name, "イベント名" %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "イベント内容" %><br />
+    <%= f.text_area :content, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_day, "開始日" %><br />
+    <%= f.datetime_select :start_day, use_month_numbers: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_day, "終了日" %><br />
+    <%= f.datetime_select :end_day, use_month_numbers: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集する", class: :form__btn  %>
+  </div>
+  <div class="delete_btn">
+    <%= link_to "削除する", event_path, method: :delete, class: :form__btn %>
+  </div>
+<% end %>
+
+</div>
