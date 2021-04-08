@@ -1,0 +1,28 @@
+<div class="user-main">
+  <div class="users-list" >
+  <div>
+  <%# <h4 class="list-title">
+  <p>氏名</p>
+  <p>生年月日</p>
+  </h4> %>
+  </div>
+    <ul>
+      <% @users.each do |user| %>
+       <li class="user-list">
+        <%= link_to root_path, method: :get do %>
+        <div>
+          <div class="user-name">
+            <h4>
+            <%= user.created_at.strftime("%Y/%m/%d") %>
+            <%= user.last_name %>
+            <%= user.first_name %> 
+            <%= user.birth_day.strftime("%Y/%m/%d") %>
+            </h4>
+          </div>
+        </div>
+        <% end %>
+       </li>
+       <% end %>
+    </ul>
+  </div>
+</div>

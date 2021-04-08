@@ -13,10 +13,10 @@
                 <%= eve.name %>
                 </h3></div>
                 <div>
-                <%= eve.start_day %> から
+                <%= eve.start_day.strftime("%Y-%m-%d %H:%M") %> から
                 </div>
                 <div>
-                <%= eve.end_day %> まで
+                <%= eve.end_day.strftime("%Y-%m-%d %H:%M") %> まで
                 </div>
               </div>
             <% end %>

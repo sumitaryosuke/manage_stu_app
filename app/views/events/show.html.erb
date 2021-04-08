@@ -1,20 +1,21 @@
 <h2>イベント詳細</h2>
+
 <p>
 <h3>イベント名</h3>
 <%= @event.name %>
 </p>
 
 <p>
-<h3>イベント内容</h3>
-<%= @event.content %>
-</p>
-
-<p>
 <h3>開始日</h3>
-<%= @event.start_day %>
+<%= @event.start_day.strftime("%Y年 %m月%d日 %H:%M") %>
 </p>
 
 <p>
 <h3>終了日</h3>
-<%= @event.end_day %>
+<%= @event.end_day.strftime("%Y年 %m月%d日 %H:%M") %>
+</p>
+
+<p>
+<h3>イベント内容</h3>
+<%= @event.content %>
 </p>

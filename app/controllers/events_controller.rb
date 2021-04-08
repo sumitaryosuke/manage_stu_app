@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :destroy]
+
   def index
     @events = Event.all.order('created_at DESC')
   end
@@ -17,11 +19,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def edit
-    @event = Event.find(params[:id])
     unless user_signed_in? && (current_user.id == @event.user_id)
       redirect_to action: :index
     end
@@ -37,7 +37,6 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     redirect_to events_path if @event.destroy
   end
 
@@ -45,6 +44,10 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :content, :start_day, :end_day).merge(user_id: current_user.id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 
 end

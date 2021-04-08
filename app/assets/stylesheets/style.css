@@ -141,3 +141,17 @@ li {
   height: auto;
 }
 
+.user-list {
+  display: flex;
+  /* border: solid black 1px; */
+  padding: 15px;
+
+}
+
+.list-title {
+  display: flex;
+}
+
+.user-list {
+  background-color: blanchedalmond;
+}
