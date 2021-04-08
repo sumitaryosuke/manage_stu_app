@@ -3,6 +3,4 @@ class ManagersController < ApplicationController
     
   end
 
-
-
 end
