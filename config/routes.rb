@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root to: 'students#index'
   
   resources :managers, only: [:index]
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    resources :scores
+  end
 end
