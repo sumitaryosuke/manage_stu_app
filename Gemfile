@@ -53,4 +53,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-# 日本語辞書データgem
+
+gem 'jp_prefecture' # 都道府県コードから都道府県名を変換するgem
+gem 'jquery-rails' # RailsでjQueryを使えるようにするgem
