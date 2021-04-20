@@ -10,6 +10,7 @@ class Term < ActiveHash::Base
     { id: 8, name: '後期期末'},
   ]
   include ActiveHash::Associations
+  
   has_many :scores
   
 end
