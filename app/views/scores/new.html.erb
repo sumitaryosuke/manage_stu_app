@@ -1,0 +1,46 @@
+<div class="main-body">
+
+  <p>
+  点数入力ページ
+  </p>
+
+  <%= form_with(model: @score, url: user_scores_path, local: true) do |f|%>
+    <div>学年
+      <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}) %>
+    </div>
+
+    <div>学期
+      <%= f.collection_select(:term_id, Term.all, :id, :name, {}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :japanese, "国語" %><br />
+      <%= f.text_field :japanese %>
+    </div>
+
+    <div class="field">
+      <%= f.label :mathematics, "数学" %><br />
+      <%= f.text_field :mathematics %>
+    </div>
+
+    <div class="field">
+      <%= f.label :english, "英語" %><br />
+      <%= f.text_field :english %>
+    </div>
+
+    <div class="field">
+      <%= f.label :science, "理科" %><br />
+      <%= f.text_field :science %>
+    </div>
+
+    <div class="field">
+      <%= f.label :social_studies, "社会" %><br />
+      <%= f.text_field :social_studies %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "点数登録", class: :form__btn  %>
+    </div>
+  <% end %>
+
+</div>
