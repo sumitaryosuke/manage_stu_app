@@ -1,51 +1,69 @@
 <div class="main_body">
-  <div>
-    <h2>
-    <%= @user.last_name %>さんのプロフィール
-    </h2>
+  <div class="prof-main">
+    <div class="profile">
+      <h2><%= @user.last_name %>さんのプロフィール</h2>
+      <div class="prof-nb">
+        <div class="prof-name">
+        氏名：
+          <%=@user.last_name %>
+          <%= @user.first_name %>
+        </div>
+        <div class="prof-bday">
+        誕生日：
+          <%= @user.birth_day %>
+        </div>
+      </div>
 
-    <div class="score-new">
-      <%= link_to "点数入力はこちら", new_user_score_path(@user), method: :get %>
-    </div>
+      <div class="prof-address">
+        <div class="prof-pcode">
+          郵便番号：<%= @user.postal_code %>
+        </div>
+        <div class="prof-add">
+          <%= @user.prefecture_code %>
+          <%= @user.city %>
+          <%= @user.street %>
+          <%= @user.building %>
+        </div>
+      </div>
 
-    <p>氏名
-    <%= @user.last_name %>
-    <%= @user.first_name %>
-    </p>
+    <div class="scores-main">
+      <div class="score-each">
+        <h2><%= @user.last_name %>さんの点数一覧</h2>
+        <div class="new-btn">
+          <%= link_to "新規点数入力", new_user_score_path(@user), method: :get %>
+        </div>
+      </div>
+        <ul class="score-list">
+          <% @scores.each do |score| %>
+            <li class="">
 
-    <p>誕生日
-    <%= @user.birth_day %>
-    </p>
-
-    <p>住所
-    <%= @user.postal_code %>
-    <%= @user.prefecture_code %>
-    <%= @user.city %>
-    <%= @user.street %>
-    <%= @user.building %>
-    </p>
-  </div>
-
-  <div class="scores-main">
-    <div class="score-each">
-      <ul class="score-list">
-        <% @scores.each do |score| %>
-          <li class="">
-            <div class="score-wrapper">
-              <div class="score-points">
-                <%= score.grade.name %> <%= score.term.name%>
-                国語 <%=score.japanese %>
-                数学 <%=score.mathematics %>
-                英語 <%=score.english %>
-                理科 <%=score.science %>
-                社会 <%=score.social_studies %>
-                
-                <%= link_to "点数を変更", edit_user_score_path(@user)%>
+              <div class="score-wrapper">
+                <div class="score-points">
+                  <div class="grade-term">
+                  <%= score.grade.name %> <%= score.term.name%>
+                  </div>
+                  <div class="points">
+                  国語 <%=score.japanese %>　
+                  数学 <%=score.mathematics %>　
+                  英語 <%=score.english %>　
+                  理科 <%=score.science %>　
+                  社会 <%=score.social_studies %>　
+                  </div>
+                  <div class="edit-btn">
+                    <%=  link_to "点数の変更",edit_user_score_path(@user)%>
+                  </div>
+                  <div class="delete-btn">
+                    <%= link_to "削除", root_path %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+            </li>
+          <% end %>
+        </ul>
     </div>
+
+    </div>
+
+
   </div>
 </div>

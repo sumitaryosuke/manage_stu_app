@@ -100,7 +100,7 @@ li {
 .main_body {
   width: 100vw;
   padding: 5px;
-  height: calc(100vh - 110px);
+  /* height: ; */
   background-color: #FFF8DC;
 }
 
@@ -158,4 +158,92 @@ li {
 
 .actions {
   margin-bottom: 10px;
+}
+
+
+/* ユーザーページ */
+.prof-main {
+  padding: 10px;
+}
+
+.profile {
+  width: 80%;
+  padding: 15px;
+}
+
+.profile,
+.score-main{
+  margin: 5px;
+}
+
+.prof-nb, 
+.prof-address,
+.score-points,
+.score-each {
+  display: flex;
+} 
+
+.prof-name,
+.prof-pcode,
+.grade-term {
+  height: 50px;
+  padding: 10px;
+  width: 20%;
+  border: solid 1px black;
+}
+
+.prof-bday,
+.prof-add,
+.points {
+  height: 50px;
+  padding: 10px;
+  width: 80%;
+  border: solid 1px black;
+  margin-right: 10px;
+}
+
+.profile h2 {
+  margin: 0 20px 10px 0;
+}
+
+.edit-btn,
+.delete-btn,
+.new-btn {
+  margin: 5px 10px;
+  height: 40px;
+  padding: auto;
+  font-size: 16px;
+  border: black solid 1px;
+  width: 150px;
+  display: block;
+  border-radius: 0.5rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: blanchedalmond;
+}
+
+.delete-btn {
+  background-color: #ddd;
+}
+
+.new-btn {
+  background-color: #f7efa2;
+  /* margin-left: 10px; */
+}
+
+.score-wrapper{
+  /* margin: 5px 0; */
+}
+
+.points {
+  padding: 10px;
+  width: 60%;
+  border: solid 1px black;
+}
+
+.score-each {
+  padding: 10px;
 }
