@@ -11,7 +11,7 @@ class ScoresController < ApplicationController
   def create
     @score = Score.create!(score_params)
     if @score.save
-      redirect_to user_score_path, notice: "点数を入力しました"
+      redirect_to user_path(@score.user_id), notice: "点数を入力しました"
     else
       render :new, notice: "点数入力ができませんでした"
     end
@@ -19,6 +19,7 @@ class ScoresController < ApplicationController
 
   def show
   end
+
 end
 
 
