@@ -4,7 +4,7 @@
     <%= @user.last_name %>さんのプロフィール
     </h2>
 
-    <div class="score">
+    <div class="score-new">
       <%= link_to "点数入力はこちら", new_user_score_path(@user), method: :get %>
     </div>
 
@@ -24,6 +24,28 @@
     <%= @user.street %>
     <%= @user.building %>
     </p>
+  </div>
 
+  <div class="scores-main">
+    <div class="score-each">
+      <ul class="score-list">
+        <% @scores.each do |score| %>
+          <li class="">
+            <div class="score-wrapper">
+              <div class="score-points">
+                <%= score.grade.name %> <%= score.term.name%>
+                国語 <%=score.japanese %>
+                数学 <%=score.mathematics %>
+                英語 <%=score.english %>
+                理科 <%=score.science %>
+                社会 <%=score.social_studies %>
+                
+                <%= link_to "点数を変更", edit_user_score_path(@user)%>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
