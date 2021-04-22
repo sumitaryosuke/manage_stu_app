@@ -1,16 +1,19 @@
-<h3>管理者ページ
-</h3>
+<div class="main_body">
+  <div class="manager-main">
+    <h2>管理者ページ</h2>
 
-<div class="manager-menu">
-  <ul>
-    <li>
-    <%= link_to "イベント作成", new_event_path, method: :get %>
-    </li>
-    <li>
-    <%= link_to "イベント編集・削除", events_path%>
-    </li>
-    <li>
-    <%= link_to "生徒情報検索・編集", users_path%>
-    </li>
-  </ul>
+      <ul>
+    <div class="manager-menu">
+      <div class="manager-btn">
+        <li><%= link_to "イベント作成", new_event_path, method: :get %></li>
+      </div>
+      <div class="manager-btn">
+        <li><%= link_to "イベント編集・削除", events_path%></li>
+      </div>
+      <div class="manager-btn">
+        <li><%= link_to "生徒情報検索・編集", users_path%></li>
+      </div>
+    </div>
+      </ul>
+  </div>
 </div>
