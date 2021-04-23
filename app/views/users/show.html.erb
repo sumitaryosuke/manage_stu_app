@@ -30,33 +30,28 @@
       <div class="score-each">
         <h2><%= @user.last_name %>さんの点数一覧</h2>
         <div class="new-btn">
-          <%= link_to "新規点数入力", new_user_score_path(@user), method: :get %>
+          <%= link_to "新規点数入力", new_score_path(@score), method: :get %>
         </div>
       </div>
         <ul class="score-list">
           <% @scores.each do |score| %>
             <li class="">
-
-              <div class="score-wrapper">
-                <div class="score-points">
-                  <div class="grade-term">
-                  <%= score.grade.name %> <%= score.term.name%>
-                  </div>
-                  <div class="points">
-                  国語 <%=score.japanese %>　
-                  数学 <%=score.mathematics %>　
-                  英語 <%=score.english %>　
-                  理科 <%=score.science %>　
-                  社会 <%=score.social_studies %>　
-                  </div>
-                  <div class="edit-btn">
-                    <%=  link_to "点数の変更",edit_user_score_path(@user)%>
-                  </div>
-                  <div class="delete-btn">
-                    <%= link_to "削除", root_path %>
+              <%=  link_to edit_score_path(score.id), method: :get do %>
+                <div class="score-wrapper">
+                  <div class="score-points">
+                    <div class="grade-term">
+                    <%= score.grade.name %> <%= score.term.name%>
+                    </div>
+                    <div class="points">
+                    国語 <%=score.japanese %>　
+                    数学 <%=score.mathematics %>　
+                    英語 <%=score.english %>　
+                    理科 <%=score.science %>　
+                    社会 <%=score.social_studies %>　
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
             </li>
           <% end %>
         </ul>
