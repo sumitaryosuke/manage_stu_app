@@ -1,5 +1,6 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: [:show, :edit, :destroy]
+
   def index
     
   end
@@ -17,7 +18,25 @@ class ScoresController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
+  def update
+    score = Score.find(params[:id])
+    if score.update(score_params)
+      redirect_to user_path(score.id)
+    else
+      render :edit
+    end
+  end
+
   def show
+  end
+
+  def destroy
+    @score.destroy
+    redirect_to  user_path(@score.user_id) if @score.destroy
   end
 
 end

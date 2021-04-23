@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_033657) do
   create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "term_id", null: false
     t.integer "grade_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id"
     t.integer "japanese", default: 0
     t.integer "mathematics", default: 0
     t.integer "english", default: 0
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_033657) do
     t.integer "science", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,4 +60,5 @@ ActiveRecord::Schema.define(version: 2021_04_12_033657) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "scores", "users"
 end

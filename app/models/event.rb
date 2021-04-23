@@ -11,7 +11,7 @@ belongs_to :user
     return unless start_day && end_day
 
     if start_day >= end_day
-      error.add(:start_day, "は終了日よりも前の日にちに設定してください")
+      errors.add(:start_day, "は終了日よりも前の日にちに設定してください")
     end
   end
 end

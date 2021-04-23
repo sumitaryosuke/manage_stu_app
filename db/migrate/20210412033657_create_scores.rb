@@ -3,7 +3,7 @@ class CreateScores < ActiveRecord::Migration[6.0]
     create_table :scores do |t|
       t.integer :term_id,         null: false
       t.integer :grade_id,        null: false
-      t.integer :user_id,         null: false
+      t.references  :user,        foreign_key: true
       
       t.integer :japanese,        default: "0"
       t.integer :mathematics,     default: "0"
